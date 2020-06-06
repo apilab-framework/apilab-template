@@ -1,5 +1,6 @@
 package app.scheduled;
 
+import app.service.MessageService;
 import com.github.apilab.executors.Scheduled;
 import javax.inject.Inject;
 
@@ -7,6 +8,8 @@ import javax.inject.Inject;
  * This is part of the executors module, remove this class if you don't use that module.
  */
 public class ScheduledSeconds implements Scheduled {
+
+  @Inject MessageService messageService;
 
   @Inject
   public ScheduledSeconds() {
@@ -20,7 +23,7 @@ public class ScheduledSeconds implements Scheduled {
 
   @Override
   public void run() {
-    System.out.println("1 second passed.");
+    messageService.send("1 second passed.");
   }
 
 }
