@@ -11,7 +11,9 @@
     <maven.compiler.target>14</maven.compiler.target>
     <!-- apilab version -->
     <package.apilab>com.github.apilab-framework.apilab</package.apilab>
-    <version.apilab>0.0.4</version.apilab>
+    <version.apilab>0.0.5</version.apilab>
+<!--    <package.apilab>com.github.apilab-framework</package.apilab>
+    <version.apilab>2.0-SNAPSHOT</version.apilab>-->
     <!-- dependencies versions -->
     <version.immutables>2.8.1</version.immutables>
     <version.dagger>2.24</version.dagger>
