@@ -59,7 +59,7 @@ spec:
           env:
             {{- toYaml .Values.scheduled.environment | nindent 12 }}
             - name: API_ENABLE_ENDPOINTS
-              value: "false"
+              value: "true"
             - name: API_ENABLE_CONSUMERS
               value: "false"
             - name: API_ENABLE_SCHEDULED
