@@ -1,7 +1,7 @@
 package app;
 
-import com.github.apilab.core.ApplicationInstance;
-import com.github.apilab.core.ApplicationModule;
+import com.github.apilab.core.ApplicationLifecycle;
+import com.github.apilab.core.GSONModule;
 import com.github.apilab.executors.ExecutorsModule;
 import com.github.apilab.jdbi.JdbiModule;
 import com.github.apilab.rabbitmq.RabbitMQModule;
@@ -12,12 +12,12 @@ import javax.inject.Singleton;
   // Our own app module providing custom instances
   AppModule.class,
   // API-LAB modules, remove what you don't use.
-  ApplicationModule.class,
+  GSONModule.class,
   RESTModule.class,
   JdbiModule.class,
   RabbitMQModule.class,
   ExecutorsModule.class})
 @Singleton
 public interface AppComponent {
-  ApplicationInstance instance();
+  ApplicationLifecycle instance();
 }
