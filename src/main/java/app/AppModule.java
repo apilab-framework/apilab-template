@@ -7,8 +7,8 @@ import com.github.apilab.core.Env;
 import com.github.apilab.executors.Scheduled;
 import com.github.apilab.queues.QueueService;
 import com.github.apilab.rest.Endpoint;
-import com.github.apilab.rest.ImmutableRESTInitializer;
-import com.github.apilab.rest.RESTInitializer;
+import com.github.apilab.rest.auth.AuthConfiguration;
+import com.github.apilab.rest.auth.ImmutableAuthConfiguration;
 import dagger.Provides;
 import dagger.multibindings.IntoSet;
 import static java.util.Collections.emptySet;
@@ -28,9 +28,9 @@ public class AppModule {
 
   @Provides
   @Singleton
-  public RESTInitializer restInitializer() {
+  public AuthConfiguration restInitializer() {
     // Essential role mapping configuration for authorization.
-    return ImmutableRESTInitializer.builder()
+    return ImmutableAuthConfiguration.builder()
       .roleMapper(Roles::valueOf)
       .build();
   }
