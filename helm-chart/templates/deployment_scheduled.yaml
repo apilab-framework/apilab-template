@@ -66,5 +66,5 @@ spec:
               value: "true"
             - name: API_ENABLE_MIGRATION
               value: "false"
-            - name: API_QUIT_AFTER_MIGRATION
-              value: "false"
+            - name: API_ENABLE_PROMETHEUS
+              value: "true"

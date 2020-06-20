@@ -26,13 +26,13 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             {{- toYaml .Values.api.environment | nindent 12 }}
+            - name: API_ENABLE_MIGRATION
+              value: "true"
             - name: API_ENABLE_ENDPOINTS
               value: "false"
             - name: API_ENABLE_CONSUMERS
               value: "false"
             - name: API_ENABLE_SCHEDULED
               value: "false"
-            - name: API_ENABLE_MIGRATION
-              value: "true"
-            - name: API_QUIT_AFTER_MIGRATION
-              value: "true"
+            - name: API_ENABLE_PROMETHEUS
+              value: "false"
