@@ -6,6 +6,7 @@ public class Main {
     System.setProperty("API_ENABLE_CONSUMERS", "true");
     System.setProperty("API_ENABLE_SCHEDULED", "true");
     System.setProperty("API_ENABLE_MIGRATION", "true");
+    System.setProperty("API_ENABLE_PROMETHEUS", "true");
     app.DaggerAppComponent
       .create()
       .instance()
