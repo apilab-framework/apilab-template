@@ -188,6 +188,11 @@
       <artifactId>postgresql</artifactId>
       <version>42.2.5</version>
     </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>27.1-jre</version>
+    </dependency>
     <!-- T E S T   D E P E N D E N C I E S -->
 
     <!-- junit -->
