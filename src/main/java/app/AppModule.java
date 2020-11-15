@@ -1,6 +1,7 @@
 package app;
 
 import app.endpoint.SomeGroupedEndpoints;
+import app.grpc.GreeterService;
 import app.scheduled.ScheduledSeconds;
 import app.service.MessageService;
 import com.github.apilab.core.Env;
@@ -11,6 +12,7 @@ import com.github.apilab.rest.auth.AuthConfiguration;
 import com.github.apilab.rest.auth.ImmutableAuthConfiguration;
 import dagger.Provides;
 import dagger.multibindings.IntoSet;
+import io.grpc.BindableService;
 import static java.util.Collections.emptySet;
 import java.util.Set;
 import javax.inject.Named;
@@ -61,6 +63,13 @@ public class AppModule {
   @IntoSet
   public Scheduled scheduledSeconds(ScheduledSeconds scheduled) {
     return scheduled;
+  }
+
+  // Remove if you don't use GRPC endpoints
+  @Provides
+  @IntoSet
+  public BindableService helloGrpc() {
+    return new GreeterService();
   }
 
 }

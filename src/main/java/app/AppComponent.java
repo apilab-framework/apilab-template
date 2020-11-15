@@ -3,6 +3,7 @@ package app;
 import com.github.apilab.core.ApplicationLifecycle;
 import com.github.apilab.core.GSONModule;
 import com.github.apilab.executors.ExecutorsModule;
+import com.github.apilab.grpc.GRPCModule;
 import com.github.apilab.jdbi.JdbiModule;
 import com.github.apilab.prometheus.PrometheusModule;
 import com.github.apilab.rabbitmq.QueueModule;
@@ -16,6 +17,7 @@ import javax.inject.Singleton;
   GSONModule.class,
   PrometheusModule.class,
   JavalinModule.class,
+  GRPCModule.class,
   JdbiModule.class,
   QueueModule.class,
   ExecutorsModule.class})

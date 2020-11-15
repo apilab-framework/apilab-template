@@ -11,7 +11,7 @@
     <maven.compiler.target>14</maven.compiler.target>
     <!-- apilab version -->
     <package.apilab>com.github.apilab-framework.apilab</package.apilab>
-    <version.apilab>0.0.10</version.apilab>
+    <version.apilab>0.0.11</version.apilab>
     <!-- dependencies versions -->
     <version.immutables>2.8.1</version.immutables>
     <version.dagger>2.24</version.dagger>
@@ -27,7 +27,32 @@
     <sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
   </properties>
   <build>
+    <extensions>
+      <extension>
+        <groupId>kr.motd.maven</groupId>
+        <artifactId>os-maven-plugin</artifactId>
+        <version>1.6.2</version>
+      </extension>
+    </extensions>
     <plugins>
+      <plugin>
+        <groupId>org.xolstice.maven.plugins</groupId>
+        <artifactId>protobuf-maven-plugin</artifactId>
+        <version>0.6.1</version>
+        <configuration>
+          <protocArtifact>com.google.protobuf:protoc:3.12.0:exe:${os.detected.classifier}</protocArtifact>
+          <pluginId>grpc-java</pluginId>
+          <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.33.1:exe:${os.detected.classifier}</pluginArtifact>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>compile-custom</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
@@ -157,6 +182,11 @@
     </dependency>
     <dependency>
       <artifactId>apilab-javalin</artifactId>
+      <groupId>${package.apilab}</groupId>
+      <version>${version.apilab}</version>
+    </dependency>
+    <dependency>
+      <artifactId>apilab-grpc</artifactId>
       <groupId>${package.apilab}</groupId>
       <version>${version.apilab}</version>
     </dependency>
