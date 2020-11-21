@@ -10,9 +10,13 @@ import com.github.apilab.queues.QueueService;
 import com.github.apilab.rest.Endpoint;
 import com.github.apilab.rest.auth.AuthConfiguration;
 import com.github.apilab.rest.auth.ImmutableAuthConfiguration;
+import com.sun.net.httpserver.HttpHandler;
 import dagger.Provides;
+import dagger.multibindings.IntoMap;
 import dagger.multibindings.IntoSet;
+import dagger.multibindings.StringKey;
 import io.grpc.BindableService;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Collections.emptySet;
 import java.util.Set;
 import javax.inject.Named;
@@ -26,6 +30,15 @@ public class AppModule {
   public Env env() {
     // Allowing to custom return an Env so that it can be mocked on tests.
     return new Env();
+  }
+  
+  @Provides @IntoMap @StringKey("/test") HttpHandler rootHandler() {
+    return ctx -> {
+      try (var out = ctx.getResponseBody()) {
+        ctx.sendResponseHeaders(200, 4);
+        out.write("test".getBytes(UTF_8));
+      }
+    };
   }
 
   @Provides

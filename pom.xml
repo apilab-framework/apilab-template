@@ -11,7 +11,7 @@
     <maven.compiler.target>14</maven.compiler.target>
     <!-- apilab version -->
     <package.apilab>com.github.apilab-framework.apilab</package.apilab>
-    <version.apilab>0.0.11</version.apilab>
+    <version.apilab>0.0.13</version.apilab>
     <!-- dependencies versions -->
     <version.immutables>2.8.1</version.immutables>
     <version.dagger>2.24</version.dagger>
@@ -181,6 +181,11 @@
       <version>${version.apilab}</version>
     </dependency>
     <dependency>
+      <artifactId>apilab-barehttp</artifactId>
+      <groupId>${package.apilab}</groupId>
+      <version>${version.apilab}</version>
+    </dependency>
+    <dependency>
       <artifactId>apilab-javalin</artifactId>
       <groupId>${package.apilab}</groupId>
       <version>${version.apilab}</version>
@@ -211,7 +216,7 @@
       <version>${version.apilab}</version>
     </dependency>
     <dependency>
-      <artifactId>apilab-executors</artifactId>
+      <artifactId>apilab-bareexecutors</artifactId>
       <groupId>${package.apilab}</groupId>
       <version>${version.apilab}</version>
     </dependency>

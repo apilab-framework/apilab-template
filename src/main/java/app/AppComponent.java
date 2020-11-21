@@ -1,5 +1,6 @@
 package app;
 
+import com.github.apilab.barehttp.BareHttpModule;
 import com.github.apilab.core.ApplicationLifecycle;
 import com.github.apilab.core.GSONModule;
 import com.github.apilab.executors.ExecutorsModule;
@@ -15,6 +16,7 @@ import javax.inject.Singleton;
   AppModule.class,
   // API-LAB modules, remove what you don't use.
   GSONModule.class,
+  BareHttpModule.class,
   PrometheusModule.class,
   JavalinModule.class,
   GRPCModule.class,
